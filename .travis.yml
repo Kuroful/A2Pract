@@ -1,0 +1,15 @@
+sudo: required
+language: python
+python: 
+  -"3.7"
+
+cache: pip
+install: "pip install -r requirements.txt"
+script:
+  - coverage run test.py
+
+codecov:
+token: 7d009f40-f6c4-4bbe-9bff-597df753ff13
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
